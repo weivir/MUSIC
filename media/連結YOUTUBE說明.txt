@@ -1,0 +1,100 @@
+連結YOUTUBE說明
+
+前置作業 開啟編輯器建立新的html文件
+
+<步驟一>
+
+至cdnjs下載jquery，更改版本 /jquery/2.2.4/jquery.min.js
+
+<步驟二>
+
+至fancybox官網下載檔案，解壓縮。在資料夾新增檔案命名為source。
+
+fancybox裡複製source所有檔案至新資料夾source。
+
+<步驟三>
+
+開啟編輯器，右邊工具列表openfolder,置入media資料包。
+
+<步驟四>
+
+編輯器，輸入
+
+<link rel="stylesheet" href="source/jquery.fancybox.css">
+
+<link rel="stylesheet" href="source/helpers/jquery.fancybox-thumbs.css">
+
+<script src="source/jquery.fancybox.pack.js"></script>
+
+<script src="source/helpers/jquery.fancybox-thumbs.js"></script>
+
+<script src="source/helpers/jquery.fancybox-media.js"></script>
+
+
+內容主題
+
+<步驟一>
+
+搜尋youtube影片，ex:https://www.youtube.com/watch?v=qq9ZO9VN1AI ,複製貼上<a href></a>
+
+<步驟二>
+
+在瀏覽器輸入img.youtube.com/vi/編號(ex:qq9ZO9VN1AI)/0.jpg
+
+mqdefault.jpg>小尺寸
+
+hqdefault.jpg>一般尺寸
+
+maxresdefault.jpg>大尺寸
+
+另儲圖片
+
+<步驟三>
+
+編輯器裡，撰寫<body></body>內容
+
+輸入一連串影音檔
+
+<步驟四>
+
+設定內容位置與大小
+
+.container{
+            display: flex;
+            align-items: center;(註:整個容器垂直置中)
+            justify-content: center;(註:整個容器水平置中)
+            height: 100vh;(註:隨著瀏覽器高做縮放)
+        }
+        
+.box img{
+            width:200px;
+            margin-left: 20px;
+        }
+
+<步驟五>
+
+撰寫javascript ，先至fancybox「Media helper」參考寫法
+
+因在<a class = "fancy-media"></a> , "fancy-media"為基準
+
+<script>
+        $(document).ready(function(){
+            $(".fancy-media").fancybox({
+
+                openEffect:"elastic", (註:elastic彈出視窗)
+
+                closeEffect:"elastic",
+
+                prevEffect:"fade",
+
+                openSpeed:400, (註:打開的速度)
+
+                padding:0, (更改內容內距)
+
+                helpers:{
+                    media:{}
+                }
+            });
+        });
+</script>
+
